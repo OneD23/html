@@ -1,4 +1,4 @@
-const API_BASE_URL = 'http://localhost:2233/api'; // Cambiar en producción
+const API_BASE_URL = 'https://portafolio-backend-c4t8.onrender.com/api'; // Cambiar en producción
 
 // === PERFIL ===
 const formPerfil = document.getElementById('formPerfil');

@@ -18,9 +18,7 @@ app.use('/uploads', express.static('uploads'));
 
 
 // Rutas
-app.use('/', (req, res) => {
-  res.status(200).send('Hola mundo');
-});
+
 
 app.use('/api/profile', profileRoutes);
 app.use('/api/project', projectRoutes);

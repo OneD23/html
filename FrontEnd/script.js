@@ -1,7 +1,7 @@
 AOS.init();
 
 // ✅ Cambia aquí entre local y producción
-const API_BASE_URL = 'https://portafolio-backend-c4t8.onrender.com/';
+const API_BASE_URL = 'https://portafolio-backend-c4t8.onrender.com/api';
 // const API_BASE_URL = 'https://tudominio.com/api';
 
 // Cargar perfil profesional
