@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Panel de Administración</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="style.css" rel="stylesheet" />
+</head>
+<body>
+  <div class="container py-4">
+    <h2 class="text-center mb-4">Panel de Administración</h2>
+
+    <ul class="nav nav-tabs" id="adminTabs">
+      <li class="nav-item"><a class="nav-link active" data-bs-toggle="tab" href="#perfil">Perfil</a></li>
+      <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#proyectos">Proyectos</a></li>
+      <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#educacion">Educación</a></li>
+      <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#certificados">Certificados</a></li>
+    </ul>
+
+    <div class="tab-content mt-3">
+      <div class="tab-pane fade show active" id="perfil">
+        <form id="formPerfil">
+          <input class="form-control mb-2" name="name" placeholder="Nombre completo" />
+          <input class="form-control mb-2" name="title" placeholder="Título profesional" />
+          <input class="form-control mb-2" name="contactEmail" placeholder="Correo" />
+          <textarea class="form-control mb-2" name="description" placeholder="Descripción"></textarea>
+          <button type="submit" class="btn btn-primary">Guardar</button>
+        </form>
+      </div>
+
+      <div class="tab-pane fade" id="proyectos">
+        <form id="formProyecto" enctype="multipart/form-data">
+          <input class="form-control mb-2" name="title" placeholder="Título" />
+          <input class="form-control mb-2" name="url" placeholder="URL" />
+          <input class="form-control mb-2" type="file" name="image" />
+          <textarea class="form-control mb-2" name="description" placeholder="Descripción"></textarea>
+          <button type="submit" class="btn btn-success">Agregar Proyecto</button>
+        </form>
+        <hr />
+        <div id="lista-proyectos"></div>
+      </div>
+
+      <div class="tab-pane fade" id="educacion">
+        <form id="formEducacion">
+          <input class="form-control mb-2" name="title" placeholder="Título" />
+          <input class="form-control mb-2" name="institution" placeholder="Institución" />
+          <input class="form-control mb-2" name="years" placeholder="Años (ej: 2017 - 2024)" />
+          <button type="submit" class="btn btn-success">Agregar Educación</button>
+        </form>
+        <hr />
+        <div id="lista-educacion"></div>
+      </div>
+
+      <div class="tab-pane fade" id="certificados">
+        <form id="formCertificado" enctype="multipart/form-data">
+          <input class="form-control mb-2" name="title" placeholder="Título del certificado" />
+          <input class="form-control mb-2" type="file" name="image" />
+          <button type="submit" class="btn btn-success">Subir Certificado</button>
+        </form>
+        <hr />
+        <div id="lista-certificados"></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="modales-certificados"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

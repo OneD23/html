@@ -1,0 +1,23 @@
+html, body {
+  overflow-x: hidden;
+  overflow-y: auto;
+  position: relative;
+}
+
+.tab-content {
+  overflow: visible !important;
+}
+
+.modal {
+  z-index: 1055 !important;
+}
+
+.modal-backdrop {
+  z-index: 1050 !important;
+}
+
+.modal-body img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
+}
