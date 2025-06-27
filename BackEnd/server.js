@@ -19,11 +19,13 @@ app.use('/uploads', express.static('uploads'));
 
 // Rutas
 
-
 app.use('/api/profile', profileRoutes);
 app.use('/api/project', projectRoutes);
 app.use('/api/education', educationRoutes);
 app.use('/api/certificates', certificateRoutes);
+app.get('/', (req, res) => {
+  res.status(200).json({ message: 'API funcionando correctamente' });
+});
 
 // Conexión a MongoDB
 mongoose.connect(process.env.MONGO_URI)
