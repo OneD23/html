@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const upload = require('../config/multer');
+const upload = require('../config/cloudinary'); // <--- CAMBIO aquí
 const {
   getProjects,
   addProject,
@@ -14,4 +14,3 @@ router.put('/:id', upload.single('image'), updateProject);
 router.delete('/:id', deleteProject);
 
 module.exports = router;
-

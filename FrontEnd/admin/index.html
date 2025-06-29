@@ -33,7 +33,8 @@
         <form id="formProyecto" enctype="multipart/form-data">
           <input class="form-control mb-2" name="title" placeholder="Título" />
           <input class="form-control mb-2" name="url" placeholder="URL" />
-          <input class="form-control mb-2" type="file" name="image" />
+          <input class="form-control mb-2" type="file" name="image" id="imagenProyecto" />
+          <img id="previewProyecto" class="img-fluid mb-2 d-none border rounded" style="max-height: 200px;" />
           <textarea class="form-control mb-2" name="description" placeholder="Descripción"></textarea>
           <button type="submit" class="btn btn-success">Agregar Proyecto</button>
         </form>
@@ -55,7 +56,8 @@
       <div class="tab-pane fade" id="certificados">
         <form id="formCertificado" enctype="multipart/form-data">
           <input class="form-control mb-2" name="title" placeholder="Título del certificado" />
-          <input class="form-control mb-2" type="file" name="image" />
+          <input class="form-control mb-2" type="file" name="image" id="imagenCertificado" />
+          <img id="previewCertificado" class="img-fluid mb-2 d-none border rounded" style="max-height: 200px;" />
           <button type="submit" class="btn btn-success">Subir Certificado</button>
         </form>
         <hr />

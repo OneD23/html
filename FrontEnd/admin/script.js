@@ -1,4 +1,4 @@
-const API_BASE_URL = 'https://portafolio-backend-c4t8.onrender.com/api'; // Cambiar en producción
+const API_BASE_URL = 'https://portafolio-backend-c4t8.onrender.com/api';
 
 // === PERFIL ===
 const formPerfil = document.getElementById('formPerfil');
@@ -56,6 +56,7 @@ formProyecto.addEventListener('submit', e => {
     .then(res => res.json())
     .then(() => {
       formProyecto.reset();
+      document.getElementById('previewProyecto').classList.add('d-none');
       cargarProyectos();
     });
 });
@@ -64,6 +65,19 @@ window.eliminarProyecto = id => {
   fetch(`${API_BASE_URL}/project/${id}`, { method: 'DELETE' })
     .then(() => cargarProyectos());
 };
+
+// Vista previa imagen proyecto
+document.getElementById('imagenProyecto').addEventListener('change', e => {
+  const img = document.getElementById('previewProyecto');
+  const file = e.target.files[0];
+  if (file) {
+    img.src = URL.createObjectURL(file);
+    img.classList.remove('d-none');
+  } else {
+    img.classList.add('d-none');
+    img.src = '';
+  }
+});
 
 // === EDUCACIÓN ===
 const formEducacion = document.getElementById('formEducacion');
@@ -141,7 +155,7 @@ const cargarCertificados = () => {
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
                 </div>
                 <div class="modal-body text-center">
-                  <img src="${API_BASE_URL.replace('/api', '')}${cert.image}" class="img-fluid rounded" alt="${cert.title}" />
+                  <img src="${cert.image}" class="img-fluid rounded" alt="${cert.title}" loading="lazy" />
                 </div>
                 <div class="modal-footer">
                   <button class="btn btn-danger" onclick="eliminarCertificado('${cert._id}')">Eliminar</button>
@@ -155,7 +169,6 @@ const cargarCertificados = () => {
       });
     });
 };
-
 cargarCertificados();
 
 formCertificado.addEventListener('submit', e => {
@@ -168,6 +181,7 @@ formCertificado.addEventListener('submit', e => {
     .then(res => res.json())
     .then(() => {
       formCertificado.reset();
+      document.getElementById('previewCertificado').classList.add('d-none');
       cargarCertificados();
     });
 });
@@ -176,3 +190,16 @@ window.eliminarCertificado = id => {
   fetch(`${API_BASE_URL}/certificates/${id}`, { method: 'DELETE' })
     .then(() => cargarCertificados());
 };
+
+// Vista previa imagen certificado
+document.getElementById('imagenCertificado').addEventListener('change', e => {
+  const img = document.getElementById('previewCertificado');
+  const file = e.target.files[0];
+  if (file) {
+    img.src = URL.createObjectURL(file);
+    img.classList.remove('d-none');
+  } else {
+    img.classList.add('d-none');
+    img.src = '';
+  }
+});

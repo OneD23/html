@@ -79,20 +79,20 @@ fetch(`${API_BASE_URL}/project`)
     const container = document.getElementById('project-container');
     container.innerHTML = '';
 
-    data.forEach(proj => {
-      const col = document.createElement('div');
-      col.className = 'col';
-      col.innerHTML = `
-        <div class="card project-card h-100">
-          <img src="${API_BASE_URL.replace('/api', '')}${proj.image}" class="card-img-top" alt="${proj.title}">
-          <div class="card-body">
-            <h5 class="card-title">${proj.title}</h5>
-            <p class="card-text">${proj.description || ''}</p>
-            <a href="${proj.url}" class="btn btn-outline-primary" target="_blank">Visitar</a>
-          </div>
-        </div>
-      `;
-      container.appendChild(col);
-    });
+   data.forEach(proj => {
+  const col = document.createElement('div');
+  col.className = 'col';
+  col.innerHTML = `
+    <div class="card project-card h-100">
+      <img src="${proj.image}" class="card-img-top" alt="${proj.title}" loading="lazy">
+      <div class="card-body">
+        <h5 class="card-title">${proj.title}</h5>
+        <p class="card-text">${proj.description || ''}</p>
+        <a href="${proj.url}" class="btn btn-outline-primary" target="_blank">Visitar</a>
+      </div>
+    </div>
+  `;
+  container.appendChild(col);
+});
   })
   .catch(err => console.error('Error cargando proyectos:', err));
